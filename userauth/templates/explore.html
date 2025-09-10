@@ -1,0 +1,67 @@
+            <nav class="">
+                <div class="text-center mt-3">
+                    <img src="{{profile.profileimg.url}}" alt="Profile Picture" class="profile-pic">
+                    <h4 class="mt-2"><a href="/profile/{{user}}" style="text-decoration:none;">@{{user}}</a></h4>
+                </div>
+                <ul class="nav flex-column mt-4">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">
+                            <i class="fa-solid fa-house mr-1"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/explore">
+                            <i class="fa-solid fa-compass mr-1"></i> Explore
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                            <i class="fa-solid fa-magnifying-glass mr-1"></i> Search
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal2"
+                            data-bs-whatever="@getbootstrap">
+                            <i class="fa-solid fa-circle-plus mr-1"></i> Create Post
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile/{{user}}">
+                            <i class="fa-solid fa-user mr-1"></i> Profile
+                        </a>
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">
+                            <i class="fa-solid fa-right-from-bracket mr-1"></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+
+
+
+
+
+
+
+
+
+<div>
+    <img src="{{profile.profileimg.url}}" alt="Profile Picture" class="profile-pic fadeInUp">
+<h4 class="mt-2 fadeInUp"><a href="/profile/{{user}}" style="text-decoration:none;">@{{user}}</a></h4>
+</div>
+
+
+
+                        <div class="col m-2 image_s" style="margin-bottom: 10px;">
+                            <img class="image__img" src="{{pos.image.url}}" alt="Post Image"
+                                style="max-width: 213px; max-height: 213px">
+                            <div class="image__overlay image__overlay--primary">
+                                <div class="image__title"><a href="/profile/{{pos.user}}">@{{pos.user}}</a></div>
+                                <p class="image__description">
+                                    {{pos.caption}}
+                                </p>
+                            </div>
+                        </div>
+                    
