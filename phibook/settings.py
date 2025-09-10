@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,14 +23,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-wir(3cz-x#7g4-t%=-f0woufn39@tgrsd)2k%ehu9$4&g@kl1y'
+#SECRET_KEY = 'django-insecure-wir(3cz-x#7g4-t%=-f0woufn39@tgrsd)2k%ehu9$4&g@kl1y'
+SECRET_KEY = config('SECRET_KEY', default='django-insecure-wir(3cz-x#7g4-t%=-f0woufn39@tgrsd)2k%ehu9$4&g@kl1y')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True
+# DEBUG = True
+# ALLOWED_HOSTS = []
 
 
-ALLOWED_HOSTS = []
+
+DEBUG = False  # Changed to False for production
+
+ALLOWED_HOSTS = ['phibookenvn.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
