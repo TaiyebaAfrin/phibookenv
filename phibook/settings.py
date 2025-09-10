@@ -24,9 +24,16 @@ ALLOWED_HOSTS = ['phibookenvn.onrender.com', 'localhost', '127.0.0.1']
 
 
 
-DEBUG = True
-CSRF_COOKIE_SECURE = False
-SESSION_COOKIE_SECURE = False
+DEBUG = False
+# CSRF_COOKIE_SECURE = False
+# SESSION_COOKIE_SECURE = False
+
+
+
+
+
+
+
 
 # For development, you might want to allow all origins (be careful with this)
 CSRF_TRUSTED_ORIGINS = [
@@ -138,7 +145,8 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 
 
 
-
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 
 # In your main settings.py
 if DEBUG:
@@ -154,3 +162,9 @@ else:
     CSRF_TRUSTED_ORIGINS = [
         'https://phibookenvn.onrender.com',
     ]
+
+
+CSRF_USE_SESSIONS = False
+CSRF_COOKIE_HTTPONLY = False
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
