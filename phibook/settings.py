@@ -17,6 +17,25 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['phibookenvn.onrender.com', 'localhost', '127.0.0.1']
 
+
+
+
+
+DEBUG = True
+CSRF_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = False
+
+# For development, you might want to allow all origins (be careful with this)
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:8000',
+    'http://127.0.0.1:8000',
+]
+
+
+
+
+
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -114,3 +133,21 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 
 
 
+
+
+
+
+# In your main settings.py
+if DEBUG:
+    CSRF_COOKIE_SECURE = False
+    SESSION_COOKIE_SECURE = False
+    CSRF_TRUSTED_ORIGINS = [
+        'http://localhost:8000',
+        'http://127.0.0.1:8000',
+    ]
+else:
+    CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_TRUSTED_ORIGINS = [
+        'https://phibookenvn.onrender.com',
+    ]
