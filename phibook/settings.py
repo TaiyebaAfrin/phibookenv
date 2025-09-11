@@ -176,16 +176,18 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 
 
-# # CSRF and CORS settings (ADD THESE)
-# CSRF_TRUSTED_ORIGINS = [
-#     'https://phibookenvn.onrender.com',
-#     'https://*.onrender.com',
-# ]
+# CSRF and CORS settings (ADD THESE)
+CSRF_TRUSTED_ORIGINS = [
+    'https://phibookenvn.onrender.com',
+    'https://*.onrender.com',
+    'phibookenv-vj3s-7s1tlks86-djangos-projects-57d6d42b.vercel.app',
+]
 
-# CORS_ALLOWED_ORIGINS = [
-#     'https://phibookenvn.onrender.com',
-#     'https://*.onrender.com',
-# ]
+CORS_ALLOWED_ORIGINS = [
+    'https://phibookenvn.onrender.com',
+    'https://*.onrender.com',
+    'phibookenv-vj3s-7s1tlks86-djangos-projects-57d6d42b.vercel.app',
+]
 
 # Cookie settings for HTTPS
 CSRF_COOKIE_SECURE = True
