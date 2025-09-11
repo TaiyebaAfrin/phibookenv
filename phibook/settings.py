@@ -34,7 +34,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['phibookenvn.onrender.com', 'localhost', '127.0.0.1', '.vercel.app']
 # Application definition
-ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '').split(',')
+
 
 
 INSTALLED_APPS = [
