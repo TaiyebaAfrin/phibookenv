@@ -26,6 +26,9 @@ SECRET_KEY = 'django-insecure-wir(3cz-x#7g4-t%=-f0woufn39@tgrsd)2k%ehu9$4&g@kl1y
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
+DEBUG = True
+
+
 
 #ALLOWED_HOSTS = []
 
@@ -173,24 +176,21 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 
 
+# # CSRF and CORS settings (ADD THESE)
+# CSRF_TRUSTED_ORIGINS = [
+#     'https://phibookenvn.onrender.com',
+#     'https://*.onrender.com',
+# ]
 
-DEBUG = False
+# CORS_ALLOWED_ORIGINS = [
+#     'https://phibookenvn.onrender.com',
+#     'https://*.onrender.com',
+# ]
 
-# CSRF and CORS settings (ADD THESE)
-CSRF_TRUSTED_ORIGINS = [
-    'https://phibookenvn.onrender.com',
-    'https://*.onrender.com',
-]
+# # Cookie settings for HTTPS
+# CSRF_COOKIE_SECURE = True
+# SESSION_COOKIE_SECURE = True
 
-CORS_ALLOWED_ORIGINS = [
-    'https://phibookenvn.onrender.com',
-    'https://*.onrender.com',
-]
-
-# Cookie settings for HTTPS
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
-
-# Security settings for production
-SECURE_SSL_REDIRECT = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# # Security settings for production
+# SECURE_SSL_REDIRECT = True
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
