@@ -1,160 +1,3 @@
-# """
-# Django settings for phibook project.
-# """
-
-# from pathlib import Path
-# import os
-# from decouple import config
-
-
-# # Build paths inside the project like this: BASE_DIR / 'subdir'.
-# BASE_DIR = Path(__file__).resolve().parent.parent
-
-# # Quick-start development settings
-# SECRET_KEY = config('SECRET_KEY', default='django-insecure-wir(3cz-x#7g4-t%=-f0woufn39@tgrsd)2k%ehu9$4&g@kl1y')
-
-# # Debug settings - use environment variable
-# DEBUG = config('DEBUG', default=False, cast=bool)
-
-# ALLOWED_HOSTS = ['phibookenvn.onrender.com', 'localhost', '127.0.0.1']
-
-
-
-
-
-# DEBUG = True
-# CSRF_COOKIE_SECURE = False
-# SESSION_COOKIE_SECURE = False
-
-# # For development, you might want to allow all origins (be careful with this)
-# CSRF_TRUSTED_ORIGINS = [
-#     'http://localhost:8000',
-#     'http://127.0.0.1:8000',
-# ]
-
-
-
-
-
-
-# # Application definition
-# INSTALLED_APPS = [
-#     'django.contrib.admin',
-#     'django.contrib.auth',
-#     'django.contrib.contenttypes',
-#     'django.contrib.sessions',
-#     'django.contrib.messages',
-#     'django.contrib.staticfiles',
-#     'userauth'
-# ]
-
-# MIDDLEWARE = [
-#     'django.middleware.security.SecurityMiddleware',
-#     'whitenoise.middleware.WhiteNoiseMiddleware',  # Added for static files
-#     'django.contrib.sessions.middleware.SessionMiddleware',
-#     'django.middleware.common.CommonMiddleware',
-#     'django.middleware.csrf.CsrfViewMiddleware',
-#     'django.contrib.auth.middleware.AuthenticationMiddleware',
-#     'django.contrib.messages.middleware.MessageMiddleware',
-#     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-# ]
-
-# ROOT_URLCONF = 'phibook.urls'
-
-# TEMPLATES = [
-#     {
-#         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-#         'DIRS': [os.path.join(BASE_DIR, 'templates')],
-#         'APP_DIRS': True,
-#         'OPTIONS': {
-#             'context_processors': [
-#                 'django.template.context_processors.request',
-#                 'django.contrib.auth.context_processors.auth',
-#                 'django.contrib.messages.context_processors.messages',
-#             ],
-#         },
-#     },
-# ]
-
-# WSGI_APPLICATION = 'phibook.wsgi.application'
-
-# # Database configuration with fallback
-# try:
-#     import dj_database_url
-#     # Use PostgreSQL if dj-database-url is available (production)
-#     DATABASES = {
-#         'default': dj_database_url.config(
-#             default='postgresql://phibookbd_2muf_user:n0Awoh7DlnkUJmcdPT05A85o5X8yPe4D@dpg-d2uro8fdiees739a92d0-a.oregon-postgres.render.com/phibookbd_2muf',
-#             conn_max_age=600
-#         )
-#     }
-# except ImportError:
-#     # Fallback to SQLite for local development
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': BASE_DIR / 'db.sqlite3',
-#         }
-#     }
-
-# INTERNAL_IPS = ["127.0.0.1"]
-
-# FRONTEND_URL = 'http://127.0.0.1:8000'
-
-# # Password validation
-# AUTH_PASSWORD_VALIDATORS = [
-#     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
-#     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
-#     {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
-#     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
-# ]
-
-# # Internationalization
-# LANGUAGE_CODE = 'en-us'
-# TIME_ZONE = 'Asia/Dhaka'
-# USE_I18N = True
-# USE_TZ = True
-
-# # Static files (CSS, JavaScript, Images)
-# STATIC_URL = 'static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
-# # WhiteNoise configuration for static files
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# # Media files
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-# SESSION_ENGINE = 'django.contrib.sessions.backends.db'
-# SESSION_EXPIRE_AT_BROWSER_CLOSE = False
-
-
-
-
-
-
-
-# # In your main settings.py
-# if DEBUG:
-#     CSRF_COOKIE_SECURE = False
-#     SESSION_COOKIE_SECURE = False
-#     CSRF_TRUSTED_ORIGINS = [
-#         'http://localhost:8000',
-#         'http://127.0.0.1:8000',
-#     ]
-# else:
-#     CSRF_COOKIE_SECURE = True
-#     SESSION_COOKIE_SECURE = True
-#     CSRF_TRUSTED_ORIGINS = [
-#         'https://phibookenvn.onrender.com',
-#     ]
-
-
-
 """
 Django settings for phibook project.
 
@@ -183,14 +26,13 @@ SECRET_KEY = 'django-insecure-wir(3cz-x#7g4-t%=-f0woufn39@tgrsd)2k%ehu9$4&g@kl1y
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True
-
-
 
 #ALLOWED_HOSTS = []
 
 ALLOWED_HOSTS = ['phibookenvn.onrender.com', 'localhost', '127.0.0.1', '.vercel.app']
 # Application definition
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '').split(',')
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -330,3 +172,25 @@ MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 
+
+
+DEBUG = False
+
+# CSRF and CORS settings (ADD THESE)
+CSRF_TRUSTED_ORIGINS = [
+    'https://phibookenvn.onrender.com',
+    'https://*.onrender.com',
+]
+
+CORS_ALLOWED_ORIGINS = [
+    'https://phibookenvn.onrender.com',
+    'https://*.onrender.com',
+]
+
+# Cookie settings for HTTPS
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
+# Security settings for production
+SECURE_SSL_REDIRECT = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
