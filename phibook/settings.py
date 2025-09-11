@@ -183,13 +183,13 @@ SECRET_KEY = 'django-insecure-wir(3cz-x#7g4-t%=-f0woufn39@tgrsd)2k%ehu9$4&g@kl1y
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-#DEBUG = True
-DEBUG = False
+DEBUG = True
+
 
 
 #ALLOWED_HOSTS = []
 
-ALLOWED_HOSTS = ['phibookenvn.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['phibookenvn.onrender.com', 'localhost', '127.0.0.1', '.vercel.app']
 # Application definition
 
 INSTALLED_APPS = [
