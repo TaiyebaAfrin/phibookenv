@@ -183,23 +183,10 @@ SECRET_KEY = 'django-insecure-wir(3cz-x#7g4-t%=-f0woufn39@tgrsd)2k%ehu9$4&g@kl1y
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-# DEBUG = True
 
-DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
+DEBUG = True
 
-# Vercel-specific settings
-VERCEL_DEPLOYMENT = os.environ.get('VERCEL', False)
-
-if VERCEL_DEPLOYMENT:
-    ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
-    # Add your specific Vercel domain if needed
-    ALLOWED_HOSTS.append('phibookenv-vj3s-djangos-projects-57d6d42b.vercel.app')
-else:
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'phibookenvn.onrender.com']
-
-# Also allow all hosts if DEBUG is True for development
-if DEBUG:
-    ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*']
 
 #ALLOWED_HOSTS = []
 
