@@ -36,9 +36,7 @@ ALLOWED_HOSTS = ['*']
 
 
 ALLOWED_HOSTS = [
-    'phibookenv-vj3s-djangos-projects-57d6d42b.vercel.app',
     '.vercel.app',  # Allows all Vercel subdomains
-    'phibookenv-vj3s-rsx2wvoko-djangos-projects-57d6d42b.vercel.app',
     'localhost',
     '127.0.0.1',
     'phibookenvn.onrender.com',
