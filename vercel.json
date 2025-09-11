@@ -1,15 +1,40 @@
 {
+  "version": 2,
   "builds": [
     {
       "src": "phibook/wsgi.py",
       "use": "@vercel/python",
-      "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+      "config": {
+        "maxLambdaSize": "15mb",
+        "runtime": "python3.9"
+      }
+    },
+    {
+      "src": "build_files.sh",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "staticfiles"
+      }
     }
   ],
   "routes": [
     {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/media/(.*)",
+      "dest": "/media/$1"
+    },
+    {
       "src": "/(.*)",
       "dest": "phibook/wsgi.py"
     }
-  ]
+  ],
+  "env": {
+    "DEBUG": "False",
+    "SECRET_KEY": "@your-secret-key",
+    "DATABASE_URL": "postgresql://phibookbd_2muf_user:n0Awoh7DlnkUJmcdPT05A85o5X8yPe4D@dpg-d2uro8fdiees739a92d0-a.oregon-postgres.render.com/phibookbd_2muf",
+    "PYTHONPATH": "/var/task"
+  }
 }
